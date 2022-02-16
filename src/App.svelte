@@ -12,7 +12,10 @@
     <Projects />
     <Contact />
   </div>
-  <footer><p>Built and designed by: Alex Wiegand <br/> Photos hosted at <a href='https://flickr.com'>Flickr</a></p></footer>
+  <footer>
+    <span>Built and designed by: Alex Wiegand</span>
+    <span>Photos hosted at <a href='https://flickr.com'>Flickr</a></span>
+  </footer>
 </main>
 <style lang='postcss'>
   :global(html, body){
@@ -20,13 +23,21 @@
     @apply bg-papayaWhip;
   }
   :global(h2) {
-    @apply text-barnRed pl-4 underline underline-offset-2;
+    @apply text-orange text-3xl pl-4 underline underline-offset-2;
+    @apply md:pl-14;
   }
+
+  :global(.modal){
+    @apply fixed top-0 left-0 h-full w-full flex justify-center z-10;
+    @apply bg-prussianBlue-dark bg-opacity-50;
+  }
+
   #body {
     /* Sizing */
-    @apply h-3/4 w-11/12 md:h-5/6;
+    @apply h-3/4 w-full;
+    @apply md:h-5/6 md:w-11/12;
     /* Spacing */
-    @apply self-center m-auto pb-4;
+    @apply m-auto pb-4;
     /* Scroll Behavior */
     @apply overflow-auto;
     /* Borders */
@@ -35,10 +46,15 @@
     /* Colors */
     @apply bg-richBlack;
   }
+
   main {
     @apply h-full w-full flex flex-col;
   }
   footer {
+    @apply flex flex-col justify-center mb-2 md:flex-row;
     @apply text-sm text-center;
+  }
+  span{
+    @apply md:mx-4;
   }
 </style>

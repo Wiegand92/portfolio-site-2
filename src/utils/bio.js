@@ -1,5 +1,5 @@
 import { database as db } from './firebase.js';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, set } from 'firebase/database';
 
 const fetchBio = new Promise((resolve, reject) => {
   const bioRef = ref(db, 'bio');
@@ -14,4 +14,9 @@ const getBio = async () => {
   return bio;
 };
 
-export { getBio };
+function updateBio(newBio) {
+  const bioRef = ref(db, 'bio');
+  set(bioRef, newBio)
+}
+
+export { getBio, updateBio };

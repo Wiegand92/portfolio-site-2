@@ -1,4 +1,5 @@
 module.exports = {
+  
   extends: ['prettier'],
   plugins: ['prettier', 'jest', 'cypress'],
   parser: 'babel-eslint',
@@ -12,8 +13,5 @@ module.exports = {
     react: {
       version: 'detect',
     },
-  },
-  rules: {
-    'prettier/prettier': ['warn', { endOfLine: 'auto' }],
   },
 };

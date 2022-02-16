@@ -1,9 +1,36 @@
 <script>
   export let project;
 
+  let flipped = false;
+  
+  function handleClick() {
+    flipped = !flipped
+  }
+
+	function flip(node, {
+		delay = 0,
+		duration = 1500
+	}) {
+		return {
+			delay,
+			duration,
+			css: (t, u) => `
+				transform: rotateY(${1 - (u * 180)}deg);
+				opacity: ${1 - u};
+			`
+		};
+	}
 </script>
 <section>
-  <img src={project.name === "Hitchhiker's Guide to Cocktails" ? 'https://live.staticflickr.com/65535/51815039744_a6cb205437_z.jpg' : ''} alt={project.name}>
+  <div class="card-container">
+    {#if flipped}
+      <div class="card">
+        <p transition:flip on:pointerdown={handleClick}>{project.description}</p>
+      </div>
+    {:else}
+      <div class="card"><img transition:flip src={project.newUrl} on:pointerdown={handleClick} alt={project.name} /></div>
+    {/if}
+  </div>
   <a href={project.url}> {project.name} </a>
 </section>
 
@@ -11,15 +38,29 @@
   section {
     @apply flex flex-col justify-between;
   }
-  img {
-    @apply max-h-thumbnail-sm max-w-thumbnail-sm mx-auto;
-    @apply md:max-w-thumbnail-lg max-h-thumbnail-lg;
+  img, p, .card-container {
+    @apply h-thumbnail-sm w-thumbnail-sm my-0 mx-auto rounded-md;
+    @apply md:w-thumbnail-lg md:h-thumbnail-lg;
+  }
+  .card-container {
+    @apply relative;
+  }
+  .card {
+    @apply fixed;
+  }
+  p{
+    @apply bg-richBlack text-papayaWhip box-border p-4;
   }
   a {
-    @apply text-center text-2xl text-papayaWhip;
+    @apply text-center bg-richBlack text-prussianBlue-light w-fit mx-auto p-2 my-2 rounded-lg shadow-md shadow-richBlack-dark;
 
+    @apply md:text-2xl;
     /* Hover Styles */
-    @apply transition-colors;
-    @apply hover:text-prussianBlue-light;
+    @apply transition-all;
+    @apply hover:text-papayaWhip;
+  }
+  p, a, img{
+    @apply cursor-pointer;
+    @apply md:shadow-md md:shadow-richBlack-dark;
   }
 </style>

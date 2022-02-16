@@ -12,6 +12,7 @@ module.exports = {
         DEFAULT: '#C1121F',
         dark: '#950E17',
       },
+      orange: '#f4a15d',
       papayaWhip: {
         DEFAULT: '#FDF0D5',
         dark: '#F9D48A',
@@ -33,12 +34,12 @@ module.exports = {
       },
     },
     extend: {
-      maxWidth: {
-        'thumbnail-sm': '240px',
+      width: {
+        'thumbnail-sm': '282px',
         'thumbnail-lg': '800px',
       },
-      maxHeight: {
-        'thumbnail-sm': '157px',
+      height: {
+        'thumbnail-sm': '183px',
         'thumbnail-lg': '525px',
       },
     },

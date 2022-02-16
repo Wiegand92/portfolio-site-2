@@ -1,30 +1,48 @@
 <script>
-  import Carousel from 'svelte-carousel'
-  import { getProjects } from '../utils/projects.js'
-  import ProjectCard from './ProjectCard.svelte'
+  import { onMount } from 'svelte';
+  import Carousel from 'svelte-carousel';
+
+  import { isLoggedIn, projects } from '../store';
+  import ProjectCard from './ProjectCard.svelte';
+  import EditProjects from './EditProjects.svelte';
+  import Loading from './Loading.svelte';
+  import EditIcon from './EditIcon.svelte';
+
+  let showProjectEditor = false
+
+  // onMount(async () => {
+  //   await getProjectsData()
+  // })
 </script>
 
 <section>
-  <h2>My Projects</h2>
 
-  {#await getProjects()}
-    <p>...Loading</p>
-  {:then projects}
+  {#if showProjectEditor}
+    <EditProjects toggleFn={() => showProjectEditor = !showProjectEditor}/>
+  {/if}
+  <h2>My Projects
+    {#if $isLoggedIn}
+      <EditIcon toggleFn={() => showProjectEditor = !showProjectEditor} />
+    {/if}
+  </h2>
+
+  {#if $projects === null}
+    <Loading />
+  {:else}
     <div id="carousel">
       <Carousel>
-        {#each projects as project}
+        {#each $projects as project}
           <ProjectCard project={project} />
         {/each}
       </Carousel>
     </div>
-  {:catch error}
-    <p>Uh oh something happened! {error}</p>
-  {/await}
+  {/if}
+
 </section>
 
 <style lang='postcss'>
-  #carousel {
-    @apply bg-richBlack-light p-4 rounded-lg;
-    @apply md:w-1/2 mx-auto;
+  :global(#carousel) {
+    @apply bg-richBlack-light py-2 mx-4 rounded-lg;
+    @apply md:w-3/4 md:p-4 md:m-auto;
   }
 </style>
