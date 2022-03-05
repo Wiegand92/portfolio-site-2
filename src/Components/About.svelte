@@ -30,7 +30,7 @@
   {/if}
 </section>
 
-<style>
+<style lang='postcss'>
   p{
     @apply bg-richBlack-light p-4 mx-4 rounded-lg;
     @apply text-xl;

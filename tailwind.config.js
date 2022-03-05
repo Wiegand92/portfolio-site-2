@@ -35,11 +35,11 @@ module.exports = {
     },
     extend: {
       width: {
-        'thumbnail-sm': '282px',
+        'thumbnail-sm': '200px',
         'thumbnail-lg': '800px',
       },
       height: {
-        'thumbnail-sm': '183px',
+        'thumbnail-sm': '130px',
         'thumbnail-lg': '525px',
       },
     },

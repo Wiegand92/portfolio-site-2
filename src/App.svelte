@@ -3,12 +3,14 @@
   import Contact from './Components/Contact.svelte';
   import Projects from './Components/Projects.svelte';
   import About from './Components/About.svelte';
+  import Skills from './Components/Skills.svelte'
 </script>
 
 <main>
   <Header></Header>
   <div id="body">
     <About />
+    <Skills />
     <Projects />
     <Contact />
   </div>
@@ -44,6 +46,20 @@
     @apply rounded-bl-md border-0 border-l-2 border-b-2 border-barnRed-light;
     border-style: inset;
     /* Colors */
+    @apply bg-richBlack;
+
+    /* Scrollbar Styles */
+    scrollbar-color: #E00000 #07393C;
+  }
+
+  #body::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  #body::-webkit-scrollbar-thumb{
+    @apply bg-barnRed-light rounded-sm;
+  }
+  #body::-webkit-scrollbar-track{
     @apply bg-richBlack;
   }
 

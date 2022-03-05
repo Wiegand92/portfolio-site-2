@@ -1,11 +1,10 @@
 <script>
-  import { createPopper } from "@popperjs/core";
-  import { onMount } from "svelte";
+  import { createPopper } from '@popperjs/core';
+  import { onMount } from 'svelte';
 
   import { toggleLoginForm, isLoggedIn, showLoginForm } from '../store';
   import { signOutUser } from '../utils/login';
   import LoginForm from './LoginForm.svelte';
-
 
   let popperVisible = false;
 
@@ -14,41 +13,58 @@
 
   onMount(() => {
     createPopper(popperButton, popperMenu, {
-        placement: 'bottom-start',
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: [-15, 12],
-            },
+      placement: 'bottom-start',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [-15, 12],
           },
-        ],
+        },
+      ],
     });
-  })
+  });
 
   const toggleDropdown = () => {
-    popperVisible = !popperVisible
+    popperVisible = !popperVisible;
   };
 </script>
 
 <header>
-
   {#if $showLoginForm}
-    <LoginForm/>
+    <LoginForm />
   {/if}
-  <img src="./images/profile.jpg" alt="" bind:this={popperButton} on:click={toggleDropdown} >
-  <div id='popper' bind:this={popperMenu} style="visibility: {popperVisible ? 'visible':'hidden'}">
-    <div id='popper-arrow'></div>
+  <img
+    src="./images/profile.jpg"
+    alt=""
+    bind:this={popperButton}
+    on:click={toggleDropdown}
+  />
+  <div
+    id="popper"
+    bind:this={popperMenu}
+    style="visibility: {popperVisible ? 'visible' : 'hidden'}"
+  >
+    <div id="popper-arrow" />
     {#if !$isLoggedIn}
-      <div class='menu-item' on:click={() => {toggleLoginForm(); toggleDropdown();}}>Login</div>
+      <div
+        class="menu-item"
+        on:click={() => {
+          toggleLoginForm();
+          toggleDropdown();
+        }}
+      >
+        Login
+      </div>
     {:else}
-      <div class='menu-item' on:click={() => signOutUser()}>Sign Out</div>
+      <div class="menu-item" on:click={() => signOutUser()}>Sign Out</div>
     {/if}
-    <div class='menu-item'>My resume</div>
+    <div class="menu-item">My resume</div>
   </div>
   <h1>Alex Wiegand</h1>
 </header>
-<style lang='postcss'>
+
+<style lang="postcss">
   img {
     @apply h-16 md:h-20 m-auto rounded-full border-solid border-richBlack-dark border-2;
     @apply cursor-pointer;
@@ -69,7 +85,7 @@
   }
 
   #popper-arrow {
-    @apply bg-barnRed h-4 w-4 mx-auto rounded-sm; 
+    @apply bg-barnRed h-4 w-4 mx-auto rounded-sm;
     /* Position arrow */
     @apply top-[-8px] absolute left-[35%] md:left-[40%] [transform:rotate(45deg)] [clip-path:polygon(100%_0,0%_100%,0_0)];
   }

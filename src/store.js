@@ -2,6 +2,7 @@ import { writable, readable } from 'svelte/store';
 import { auth } from './utils/firebase';
 import { getBio } from './utils/bio';
 import { getProjects } from './utils/projects';
+import { getSkills } from './utils/skills';
 
 // Login status //
 const isLoggedIn = writable(false);
@@ -32,7 +33,12 @@ const projects = readable(null, async set => {
   set(fetchedProjects);
   return () => {};
 });
-// async function getProjectsData() {}
+
+// Skills //
+const skills = readable(null, set => {
+  getSkills().then(response => set(response));
+  return (stop = () => {});
+});
 
 export {
   isLoggedIn,
@@ -42,4 +48,5 @@ export {
   bio,
   getBiography,
   projects,
+  skills,
 };

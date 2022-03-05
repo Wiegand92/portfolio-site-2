@@ -8,7 +8,7 @@
   import Loading from './Loading.svelte';
   import EditIcon from './EditIcon.svelte';
 
-  let showProjectEditor = false
+  let showProjectEditor = false;
 
   // onMount(async () => {
   //   await getProjectsData()
@@ -16,13 +16,13 @@
 </script>
 
 <section>
-
   {#if showProjectEditor}
-    <EditProjects toggleFn={() => showProjectEditor = !showProjectEditor}/>
+    <EditProjects toggleFn={() => (showProjectEditor = !showProjectEditor)} />
   {/if}
-  <h2>My Projects
+  <h2>
+    My Projects
     {#if $isLoggedIn}
-      <EditIcon toggleFn={() => showProjectEditor = !showProjectEditor} />
+      <EditIcon toggleFn={() => (showProjectEditor = !showProjectEditor)} />
     {/if}
   </h2>
 
@@ -32,15 +32,14 @@
     <div id="carousel">
       <Carousel>
         {#each $projects as project}
-          <ProjectCard project={project} />
+          <ProjectCard {project} />
         {/each}
       </Carousel>
     </div>
   {/if}
-
 </section>
 
-<style lang='postcss'>
+<style lang="postcss">
   :global(#carousel) {
     @apply bg-richBlack-light py-2 mx-4 rounded-lg;
     @apply md:w-3/4 md:p-4 md:m-auto;
