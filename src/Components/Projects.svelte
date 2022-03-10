@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import Carousel from 'svelte-carousel';
 
   import { isLoggedIn, projects } from '../store';
@@ -9,10 +8,6 @@
   import EditIcon from './EditIcon.svelte';
 
   let showProjectEditor = false;
-
-  // onMount(async () => {
-  //   await getProjectsData()
-  // })
 </script>
 
 <section>

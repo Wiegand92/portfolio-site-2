@@ -36,10 +36,12 @@ module.exports = {
     extend: {
       width: {
         'thumbnail-sm': '200px',
+        'thumbnail-md': '400px',
         'thumbnail-lg': '800px',
       },
       height: {
         'thumbnail-sm': '130px',
+        'thumbnail-md': '262px',
         'thumbnail-lg': '525px',
       },
     },

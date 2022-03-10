@@ -2,13 +2,22 @@
   <h2>Contact Me</h2>
   <address>
     <a href="mailto:wiegand.alex@gmail.com">
-      <i class="devicon-google-plain" title="email for alex wiegand" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+        alt="email for Alex Wiegand"
+      />
     </a>
     <a href="https://www.linkedin.com/in/alex-wiegand-10691022">
-      <i class="devicon-linkedin-plain" title="linkedin for alex wiegand" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+        alt="linkedin for Alex Wiegand"
+      />
     </a>
     <a href="https://github.com/Wiegand92">
-      <i class="devicon-github-original" title="github for alex wiegand" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
+        alt="github for alex wiegand"
+      />
     </a>
   </address>
 </section>
@@ -17,9 +26,9 @@
   address {
     @apply flex justify-around;
   }
-  a {
-    @apply text-papayaWhip text-6xl underline-offset-4;
-    @apply hover:text-prussianBlue-light;
-    @apply transition-colors ease-in-out;
+  img {
+    @apply h-16 lg:h-20;
+    @apply hover:h-[4.2rem] hover:lg:h-[5.2rem];
+    @apply transition-all;
   }
 </style>

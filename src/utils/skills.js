@@ -12,7 +12,6 @@ const fetchSkills = new Promise((resolve, reject) => {
 const getSkills = async () => {
   let skills;
   const data = await fetchSkills;
-  console.log(data);
   skills = [...data];
   return skills;
 };

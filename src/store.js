@@ -20,6 +20,18 @@ function toggleLoginForm() {
   showLoginForm.update(value => !value);
 }
 
+// Dropdown State //
+const dropdownVisible = writable(false);
+function toggleDropdown() {
+  dropdownVisible.update(value => !value);
+}
+
+// Show Resume //
+const showResume = writable(false);
+function toggleResume() {
+  showResume.update(value => !value);
+}
+
 // Bio //
 const bio = writable(null);
 async function getBiography() {
@@ -45,6 +57,10 @@ export {
   changeLoggedIn,
   showLoginForm,
   toggleLoginForm,
+  dropdownVisible,
+  toggleDropdown,
+  showResume,
+  toggleResume,
   bio,
   getBiography,
   projects,

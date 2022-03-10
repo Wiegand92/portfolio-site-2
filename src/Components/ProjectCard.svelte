@@ -23,7 +23,7 @@
   <div class="card-container">
     {#if flipped}
       <div class="card">
-        <p transition:flip on:pointerdown={handleClick}>
+        <p transition:flip on:click={handleClick}>
           {project.description}
         </p>
       </div>
@@ -32,7 +32,7 @@
         <img
           transition:flip
           src={project.photoUrl}
-          on:pointerdown={handleClick}
+          on:click={handleClick}
           alt={project.name}
         />
       </div>
@@ -43,13 +43,14 @@
 
 <style lang="postcss">
   section {
-    @apply flex flex-col justify-between;
+    @apply flex flex-col justify-between md:justify-around;
   }
   img,
   p,
   .card-container {
     @apply h-thumbnail-sm w-thumbnail-sm my-0 mx-auto rounded-md;
-    @apply md:w-thumbnail-lg md:h-thumbnail-lg;
+    @apply md:w-thumbnail-md md:h-thumbnail-md;
+    @apply xl:w-thumbnail-lg xl:h-thumbnail-lg;
   }
   .card-container {
     @apply relative;
