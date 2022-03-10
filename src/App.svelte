@@ -26,8 +26,9 @@
     @apply bg-papayaWhip;
   }
   :global(h2) {
-    @apply text-orange text-3xl pl-4 underline underline-offset-2;
-    @apply md:pl-14;
+    @apply text-orange text-3xl underline underline-offset-2;
+    @apply mx-4 py-4;
+    @apply md:[width:calc(75%_+_28px)] md:m-auto;
   }
 
   :global(h1, h2, h3, h4) {
@@ -52,10 +53,10 @@
     /* Scroll Behavior */
     @apply overflow-auto;
     /* Borders */
-    @apply rounded-bl-md border-0 border-l-2 border-b-2 border-barnRed-light;
-    border-style: inset;
+    @apply rounded-md;
     /* Colors */
     @apply bg-richBlack;
+    @apply shadow-md shadow-richBlack-dark;
 
     /* Scrollbar Styles */
     scrollbar-color: #e00000 #07393c;
@@ -66,10 +67,11 @@
     width: 10px;
   }
   #body::-webkit-scrollbar-thumb {
-    @apply bg-barnRed-light rounded-sm;
+    @apply bg-barnRed-light rounded-md;
   }
   #body::-webkit-scrollbar-track {
     @apply bg-richBlack;
+    @apply rounded-md;
   }
 
   main {

@@ -29,7 +29,6 @@
     @apply place-items-center;
     @apply bg-richBlack-light mx-4 rounded-lg;
     @apply md:[width:calc(75%_+_28px)] md:m-auto;
-    @apply border-2 border-solid border-barnRed-dark;
   }
   img {
     @apply h-12 m-auto my-auto;

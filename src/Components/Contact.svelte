@@ -25,6 +25,8 @@
 <style lang="postcss">
   address {
     @apply flex justify-around;
+    @apply bg-richBlack-light p-4 mx-4 rounded-lg;
+    @apply md:w-3/4 md:m-auto;
   }
   img {
     @apply h-16 lg:h-20;
