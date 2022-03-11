@@ -6,22 +6,22 @@
   import EditBio from './EditBio.svelte';
   import { isLoggedIn, bio, getBiography } from '../store';
 
-  let showBioForm = false
+  let showBioForm = false;
 
   onMount(() => {
-    getBiography()
-  })
-
+    getBiography();
+  });
 </script>
 
 <section>
-  <h2>About Me
+  <h2>
+    About Me
     {#if $isLoggedIn}
-      <EditIcon toggleFn={() => showBioForm = !showBioForm} />
+      <EditIcon toggleFn={() => (showBioForm = !showBioForm)} />
     {/if}
   </h2>
   {#if showBioForm}
-    <EditBio toggleFn={() => showBioForm = !showBioForm}/>
+    <EditBio toggleFn={() => (showBioForm = !showBioForm)} />
   {/if}
   {#if $bio === null}
     <Loading />
@@ -30,10 +30,11 @@
   {/if}
 </section>
 
-<style lang='postcss'>
-  p{
+<style lang="postcss">
+  p {
     @apply bg-richBlack-light p-4 mx-4 rounded-lg;
-    @apply text-xl;
+    @apply text-xl text-papayaWhip;
+    text-shadow: 1px 1px black;
     @apply md:w-3/4 md:m-auto;
   }
 </style>

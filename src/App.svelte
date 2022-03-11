@@ -26,7 +26,7 @@
     @apply bg-papayaWhip;
   }
   :global(h2) {
-    @apply text-orange text-3xl underline underline-offset-2;
+    @apply text-orange text-3xl;
     @apply mx-4 py-4;
     @apply md:[width:calc(75%_+_28px)] md:m-auto;
   }
@@ -56,10 +56,10 @@
     @apply rounded-md;
     /* Colors */
     @apply bg-richBlack;
-    @apply shadow-md shadow-richBlack-dark;
+    @apply md:shadow-md md:shadow-richBlack-dark;
 
     /* Scrollbar Styles */
-    scrollbar-color: #e00000 #07393c;
+    scrollbar-color: rgb(244 161 93) #07393c;
   }
 
   #body::-webkit-scrollbar {
@@ -67,7 +67,7 @@
     width: 10px;
   }
   #body::-webkit-scrollbar-thumb {
-    @apply bg-barnRed-light rounded-md;
+    @apply bg-orange rounded-md;
   }
   #body::-webkit-scrollbar-track {
     @apply bg-richBlack;
